@@ -1,15 +1,16 @@
 body {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUDQ6LJXPc39Mihn05161P8IQgn6l6gYx11Q&usqp=CAU");
+    background-image: url("https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3BhY2UlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
     background-repeat: no-repeat;
     background-size: cover;
-
+color:rgb(200,97,25);
 }
 #img1 {
-    height: 150px;
-    width: 150px;
-    border-radius: 80px;
-    display: block;
-  margin-left: 20px;
-  margin-right: auto;
-  margin-top: center;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+  margin-top: 250px;
+  margin-left: 620px;
+}
+p{
+  color: blue;
 }
