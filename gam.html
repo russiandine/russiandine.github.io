@@ -4,7 +4,21 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <img id="img1" src="https://png.pngtree.com/png-clipart/20190118/ourlarge/pngtree-planet-universe-hand-painted-planet-cartoon-planet-png-image_457079.jpg">
+    <img id="img1" src="PngItem_470204.png">
+    <p id="clicks">clicks = 1</p>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                var img = document.getElementById("img1")
+                var clicks = document.getElementById("clicks")
+                document.getElementById("img1").addEventListener("click", clickfun);
+                var clicksnum = 0
+                function clickfun(){
+                    clicks.innerText = "clicks = " + clicksnum
+                    clicksnum = clicksnum + 1
+                }
+
+            });
+        </script>
     </body>
     <p>hello</p>
     hello
