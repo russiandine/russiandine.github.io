@@ -4,11 +4,11 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <img id="img1" src="PngItem_470204.png">
-    <p id="clicks">clicks = 1</p>
+        <img id="img1" src="PngItem_470204.png">
+        <p id="clicks">clicks = 1</p>
         <script>
             document.addEventListener("DOMContentLoaded", function(){
-                var img = document.getElementById("img1")
+                var img1 = document.getElementById("img1")
                 var clicks = document.getElementById("clicks")
                 document.getElementById("img1").addEventListener("click", clickfun);
                 var clicksnum = 0
@@ -16,11 +16,13 @@
                     clicks.innerText = "clicks = " + clicksnum
                     clicksnum = clicksnum + 1
                 }
-
             });
+            document.getElementById("img1").onclick = function() {myFunction()};
+                
+                function myFunction() {
+                document.getElementById("img1").innerHTML = img1.style.height = '230px';
+                document.getElementById("img1").innerHTML = img1.style.width = '230px';
+                }
         </script>
-    </body>
-    <p>hello</p>
-    hello
     </body>
 </html>
