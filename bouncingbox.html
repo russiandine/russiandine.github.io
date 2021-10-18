@@ -12,9 +12,15 @@
 <script>
    var box = document.getElementById("box")
    var x = 100
+   var speed = 10
    setInterval(update,50)
    function update (){
     box.style.left = x + "px";
-    x=x+5
+    x=x+speed
+    if (x >= window.innerWidth) {
+        speed= -10
+    }else if (x <= 0){
+        speed= 10
+    }
    }
 </script>
