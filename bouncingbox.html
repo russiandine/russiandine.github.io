@@ -7,29 +7,53 @@
         <div id="box">
 
         </div>
+        <div id="box2">
+
+        </div>
     </body>
 </html>
 <script>
    var box = document.getElementById("box")
    var x = 100
    var y = 100
-   var speed = 10
-   var speedy = 10
+   var box2 = document.getElementById("box2")
+    var x2 = window.innerWidth - 100
+    var y2 = 200
+   var speed = 20
+   var speedy = 20
+   var speed2 = 20
+   var speedy2 = 20
    setInterval(update,50)
    function update (){
     box.style.left = x + "px";
     box.style.top = y + "px";
+    box2.style.left = x2 + "px";
+    box2.style.top = y2 + "px";
     x=x+speed
     y=y+speedy
-    if (x >= window.innerWidth) {
+    x2=x2+speed2
+    y2=y2+speedy2
+    if (x >= window.innerWidth - 50) {
         speed= -10
     }else if (x <= 0){
         speed= 10
     }
-    if (y >= window.innerHeight) {
+    if (y >= window.innerHeight - 50) {
         speedy= -speedy
     }else if (y <= 0){
         speedy= -speedy
     }
-   }
+   
+   if (x2 >= window.innerWidth - 50) {
+        speed2= -20
+    }else if (x2 <= 0){
+        speed2= 20
+    }
+    if (y2 >= window.innerHeight - 50) {
+        speedy2= -speedy2
+    }else if (y2 <= 0){
+        speedy2= -speedy2
+    }
+}
+
 </script>
