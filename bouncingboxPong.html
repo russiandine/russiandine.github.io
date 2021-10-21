@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="bouncingbox.css">
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+    <div id="box2">
+
+    </div>
+</body>
+
+</html>
+<script>
+    var box = document.getElementById("box")
+    var x = 100
+    var y = 100
+    var box2 = document.getElementById("box2")
+    var x2 = window.innerWidth - 100
+    var y2 = 200
+    var speed = 20
+    var speedy = 20
+    var speed2 = 20
+    var speedy2 = 20
+    setInterval(update, 50)
+    function update() {
+        box.style.left = x + "px";
+        box.style.top = y + "px";
+        box2.style.top = y2 + "px";
+        x = x + speed
+        y = y + speedy
+        y2 = y2 + speedy2
+        if (x >= window.innerWidth - 50) {
+            speed = -10
+        } else if (x <= 10) {
+            speed = 10
+        }
+        if (y >= window.innerHeight - 50) {
+            speedy = -speedy
+        } else if (y <= 0) {
+            speedy = -speedy
+        }
+
+
+        //tracking//
+            if (y2 > y + 10) {
+                speedy2 = speed - 15
+            } else if (y2 < y - 10) {
+                speedy2 = speed + 15
+            } else {
+                //slow down//
+                if (speedy2 > 0) {
+                    speedy2 = speedy2 - 10
+                } else if (speedy2 < 0) {
+                    speedy2 = speedy2 + 10
+                }
+            }
+
+        
+    }
+
+</script>
