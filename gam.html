@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <img id="img1" src="PngItem_470204.png">
-        <p id="clicks">clicks = 1</p>
-        <script>
-            document.addEventListener("DOMContentLoaded", function(){
-                var img1 = document.getElementById("img1")
-                var clicks = document.getElementById("clicks")
-                document.getElementById("img1").addEventListener("click", clickfun);
-                var clicksnum = 0
-                function clickfun(){
-                    clicks.innerText = "clicks = " + clicksnum
-                    clicksnum = clicksnum + 1
-                }
-            });
-            document.getElementById("img1").onclick = function() {myFunction()};
-                
-                function myFunction() {
-                document.getElementById("img1").innerHTML = img1.style.height = '230px';
-                document.getElementById("img1").innerHTML = img1.style.width = '230px';
-                }
-        </script>
-    </body>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img id="img1" src="PngItem_470204.png">
+    <p id="clicks">clicks = 1</p>
+    <div id="button">button</div>
+
+</body>
+
 </html>
+<script>
+
+    var img1 = document.getElementById("img1")
+    var clicks = document.getElementById("clicks")
+    var upgradeToggle = false
+    document.getElementById("img1").addEventListener("click", clickfun);
+    document.getElementById("button").addEventListener("click",stop)
+    
+    var clicksnum = 0
+    setInterval(update,500)
+
+    function update(){
+        clicksnum = clicksnum + 1
+        document.getElementById("clicks").innerText = "clicks = " + clicksnum
+    }
+
+    function clickfun() {
+
+        clicksnum = clicksnum + 1
+        clicks.innerText = "clicks = " + clicksnum
+    }
+
+    function stop(){
+        
+    }
+    function button(){
+        upgrade = false
+    }
+    if (upgarde = false){
+        alert="eee"
+    }
+
+</script>

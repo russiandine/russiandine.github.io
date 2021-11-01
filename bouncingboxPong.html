@@ -47,20 +47,22 @@
 
 
         //tracking//
-            if (y2 > y + 10) {
-                speedy2 = speed - 15
-            } else if (y2 < y - 10) {
-                speedy2 = speed + 15
-            } else {
-                //slow down//
-                if (speedy2 > 0) {
-                    speedy2 = speedy2 - 10
-                } else if (speedy2 < 0) {
-                    speedy2 = speedy2 + 10
-                }
+        if (y2 > y + 20) {
+            speedy2 = speedy2 - 3
+        } else if (y2 < y - 30) {
+            speedy2 = speedy2 + 3
+        } else {
+            //slow down//
+            if (speedy2 > window.innerHeight - 50) {
+                speedy2 = speedy2 - 10
+            } else if (speedy2 < window.innerHeight + 50) {
+                speedy2 = speedy2 + 10
             }
+        }
 
-        
+
+
+
     }
 
 </script>
