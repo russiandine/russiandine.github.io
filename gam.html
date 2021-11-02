@@ -18,14 +18,15 @@
     var img1 = document.getElementById("img1")
     var clicks = document.getElementById("clicks")
     var upgradeToggle = false
+    var clicksPerInterval = 0
     document.getElementById("img1").addEventListener("click", clickfun);
-    document.getElementById("button").addEventListener("click",stop)
-    
-    var clicksnum = 0
-    setInterval(update,500)
+    document.getElementById("button").addEventListener("click", upgrade)
 
-    function update(){
-        clicksnum = clicksnum + 1
+    var clicksnum = 1
+    setInterval(update, 500)
+
+    function update() {
+        clicksnum = clicksnum + clicksPerInterval
         document.getElementById("clicks").innerText = "clicks = " + clicksnum
     }
 
@@ -35,14 +36,8 @@
         clicks.innerText = "clicks = " + clicksnum
     }
 
-    function stop(){
-        
+    function upgrade() {
+        clicksPerInterval = clicksPerInterval + 1
     }
-    function button(){
-        upgrade = false
-    }
-    if (upgarde = false){
-        alert="eee"
-    }
-
+    
 </script>
