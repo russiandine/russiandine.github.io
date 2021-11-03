@@ -13,3 +13,9 @@ color:rgb(200,97,25);
 p{
   color: blue;
 }
+#leftside {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+}

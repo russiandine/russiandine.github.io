@@ -9,15 +9,21 @@
     <img id="img1" src="PngItem_470204.png">
     <p id="clicks">clicks = 1</p>
     <div id="button">button</div>
+    <div id="leftside"></div>
+    <div id="rightside"></div>
 
 </body>
 
 </html>
 <script>
-
+    var leftsideBorder = document.getElementById("leftside")
+    var x = 100
+    var y = 100
+    leftsideBorder.style.left = x + "px";
+    leftsideBorder.style.top = y + "px";
     var img1 = document.getElementById("img1")
     var clicks = document.getElementById("clicks")
-    var upgradeToggle = false
+
     var clicksPerInterval = 0
     document.getElementById("img1").addEventListener("click", clickfun);
     document.getElementById("button").addEventListener("click", upgrade)
@@ -37,7 +43,12 @@
     }
 
     function upgrade() {
-        clicksPerInterval = clicksPerInterval + 1
+        if (clicksnum >= 10) {
+            clicksnum = clicksnum - 10
+            clicksPerInterval = clicksPerInterval + 1
+        }
+
     }
-    
+
+
 </script>
