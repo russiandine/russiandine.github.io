@@ -19,3 +19,7 @@ p{
   background-color: white;
   position: absolute;
 }
+body {
+  border-left: 100px;
+  border-left-color: white;
+}

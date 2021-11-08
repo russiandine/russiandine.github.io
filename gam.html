@@ -23,6 +23,8 @@
     leftsideBorder.style.top = y + "px";
     var img1 = document.getElementById("img1")
     var clicks = document.getElementById("clicks")
+    var cost = 10
+    var costMultiplier = 0
 
     var clicksPerInterval = 0
     document.getElementById("img1").addEventListener("click", clickfun);
@@ -43,9 +45,11 @@
     }
 
     function upgrade() {
-        if (clicksnum >= 10) {
+        if (clicksnum >= cost) {
             clicksnum = clicksnum - 10
             clicksPerInterval = clicksPerInterval + 1
+            costMultiplier = 2
+            cost = cost * costMultiplier
         }
 
     }
