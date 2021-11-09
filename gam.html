@@ -2,25 +2,31 @@
 <html>
 
 <head>
+    <style>
+        .sidebar{
+            padding-left: 10px;
+            top:100px;
+            left:100px;
+            position:absolute;
+            width:100px;
+            height: 100%;
+            background-color: white;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <img id="img1" src="PngItem_470204.png">
-    <p id="clicks">clicks = 1</p>
-    <div id="button">button</div>
-    <div id="leftside"></div>
-    <div id="rightside"></div>
+    <div class="sidebar">
+        <p id="clicks">clicks = 0</p>
+        <div id="button">cost = 10</div>
+    </div>
 
 </body>
 
 </html>
 <script>
-    var leftsideBorder = document.getElementById("leftside")
-    var x = 100
-    var y = 100
-    leftsideBorder.style.left = x + "px";
-    leftsideBorder.style.top = y + "px";
     var img1 = document.getElementById("img1")
     var clicks = document.getElementById("clicks")
     var cost = 10
@@ -46,12 +52,13 @@
 
     function upgrade() {
         if (clicksnum >= cost) {
-            clicksnum = clicksnum - 10
+            clicksnum = clicksnum - cost
             clicksPerInterval = clicksPerInterval + 1
             costMultiplier = 2
             cost = cost * costMultiplier
+            document.getElementById("button").innerText = "cost = " + cost
         }
-
+        
     }
 
 
