@@ -5,12 +5,16 @@
     <style>
         .sidebar{
             padding-left: 10px;
-            top:100px;
-            left:100px;
+            top:0px;
+            left:0px;
             position:absolute;
-            width:100px;
+            width:300px;
             height: 100%;
-            background-color: white;
+            background-image:url("https://cdn.mos.cms.futurecdn.net/jfkAU4tM8XMUAPZDm4h5Nh-1200-80.jpeg");
+            z-index: -1;
+            opacity: 0.8;
+            border-right: 10px solid white;
+            
         }
     </style>
     <link rel="stylesheet" href="style.css">
@@ -18,10 +22,9 @@
 
 <body>
     <img id="img1" src="PngItem_470204.png">
-    <div class="sidebar">
-        <p id="clicks">clicks = 0</p>
-        <div id="button">cost = 10</div>
-    </div>
+    <div id="button">cost = $10</div>
+    <div class="sidebar"></div>
+    <p id="clicks">clicks = 0</p>
 
 </body>
 
@@ -56,9 +59,8 @@
             clicksPerInterval = clicksPerInterval + 1
             costMultiplier = 2
             cost = cost * costMultiplier
-            document.getElementById("button").innerText = "cost = " + cost
+            document.getElementById("button").innerText = "cost = $" + cost
         }
-        
     }
 
 
