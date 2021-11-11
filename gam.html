@@ -12,7 +12,6 @@
             height: 100%;
             background-image:url("https://cdn.mos.cms.futurecdn.net/jfkAU4tM8XMUAPZDm4h5Nh-1200-80.jpeg");
             z-index: -1;
-            opacity: 0.8;
             border-right: 10px solid white;
             
         }
@@ -22,10 +21,11 @@
 
 <body>
     <img id="img1" src="PngItem_470204.png">
-    <div id="button">cost = $10</div>
-    <div class="sidebar"></div>
-    <p id="clicks">clicks = 0</p>
 
+    <div class="sidebar">
+        <p class="sidemenu"id="clicks">🌠 0</p>
+        <div class="sidemenu"id="button">cost = $10</div>
+    </div>
 </body>
 
 </html>
@@ -44,13 +44,13 @@
 
     function update() {
         clicksnum = clicksnum + clicksPerInterval
-        document.getElementById("clicks").innerText = "clicks = " + clicksnum
+        document.getElementById("clicks").innerText = "🌠 " + clicksnum
     }
 
     function clickfun() {
 
         clicksnum = clicksnum + 1
-        clicks.innerText = "clicks = " + clicksnum
+        clicks.innerText = "🌠 " + clicksnum
     }
 
     function upgrade() {
