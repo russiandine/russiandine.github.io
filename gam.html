@@ -3,17 +3,17 @@
 
 <head>
     <style>
-        .sidebar{
+        .sidebar {
             padding-left: 10px;
-            top:0px;
-            left:0px;
-            position:absolute;
-            width:300px;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            width: 300px;
             height: 100%;
-            background-image:url("https://cdn.mos.cms.futurecdn.net/jfkAU4tM8XMUAPZDm4h5Nh-1200-80.jpeg");
+            background-image: url("https://cdn.mos.cms.futurecdn.net/jfkAU4tM8XMUAPZDm4h5Nh-1200-80.jpeg");
             z-index: -1;
             border-right: 10px solid white;
-            
+
         }
     </style>
     <link rel="stylesheet" href="style.css">
@@ -23,8 +23,10 @@
     <img id="img1" src="PngItem_470204.png">
 
     <div class="sidebar">
-        <p class="sidemenu"id="clicks">🌠 0</p>
-        <div class="sidemenu"id="button">cost = $10</div>
+        <p class="sidemenu" id="clicks">🌠 0</p>
+        <div class="sidemenu" id="button">upgarde = $10</div>
+        <div class="sidemenu" id="button2">auto = $300</div>
+        <div class="sidemenu" id="button3">autospeed = $600</div>
     </div>
 </body>
 
@@ -32,35 +34,65 @@
 <script>
     var img1 = document.getElementById("img1")
     var clicks = document.getElementById("clicks")
-    var cost = 10
+    var upgrade1 = 10
+    var auto = 3
     var costMultiplier = 0
+    var clicksAdd = 1 //adds number of clicks per sun click
 
     var clicksPerInterval = 0
     document.getElementById("img1").addEventListener("click", clickfun);
-    document.getElementById("button").addEventListener("click", upgrade)
+    document.getElementById("button").addEventListener("click", upgrade);
+    document.getElementById("button2").addEventListener("click", auto1);
+    document.getElementById("button3").addEventListener("click", upgradeAuto1)
 
-    var clicksnum = 1
-    setInterval(update, 500)
+    var clicksnum = 0
+    setInterval(update2, 500)
+    
 
     function update() {
+        clicksnum = clicksnum + clicksAdd
+        document.getElementById("clicks").innerText = "🌠 " + clicksnum
+    }
+    function update2() {
         clicksnum = clicksnum + clicksPerInterval
         document.getElementById("clicks").innerText = "🌠 " + clicksnum
     }
 
     function clickfun() {
-
-        clicksnum = clicksnum + 1
+        clicksnum = clicksnum + clicksAdd
         clicks.innerText = "🌠 " + clicksnum
     }
 
     function upgrade() {
-        if (clicksnum >= cost) {
-            clicksnum = clicksnum - cost
+        if (clicksnum >= upgrade1) {
+            clicksnum = clicksnum - upgrade1
+            costMultiplier = 2
+            upgrade1 = upgrade1 * costMultiplier
+            document.getElementById("button").innerText = "upgrade = $" + upgrade1
+            clicksAdd = clicksAdd + 1
+        }
+
+    }
+    function auto1() {
+        if (clicksnum >= auto) {
+            clicksnum = clicksnum - auto
             clicksPerInterval = clicksPerInterval + 1
             costMultiplier = 2
-            cost = cost * costMultiplier
-            document.getElementById("button").innerText = "cost = $" + cost
+            auto = auto * costMultiplier
+            document.getElementById("button2").innerText = "auto = $" + auto
+            document.getElementById("button2").style.display = "none"
         }
+    }
+    function upgradeAuto1() {
+        if (clicksnum >= upgradeAuto) {
+            clicksnum = clicksnum - upgradeAuto
+            clicksPerInterval = clicksPerInterval + 1
+            costMultiplier = 2
+            upgradeAuto = upgradeAuto * costMultiplier
+            document.getElementById("button2").innerText = "auto = $" + upgradeAuto
+        }
+
+
     }
 
 
