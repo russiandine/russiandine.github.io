@@ -22,12 +22,25 @@
 <body>
     <img id="img1" src="PngItem_470204.png">
 
+
     <div class="sidebar">
         <p class="sidemenu" id="clicks">🌠 0</p>
-        <div class="sidemenu" id="button">upgarde = $10</div>
-        <div class="sidemenu" id="button2">auto = $300</div>
-        <div class="sidemenu" id="button3">autospeed = $600</div>
+
+
+        <div class="vert1">
+            <div class="sidemenu" id="button">upgarde = $10</div>
+        </div>
+
+        <div class="vert2">
+            <div class="sidemenu" id="button2">auto = $300</div>
+        </div>
+
+        <div class="vert3">
+            <div class="sidemenu" id="button3">autospeed = $600</div>
+        </div>
+
     </div>
+
 </body>
 
 </html>
@@ -35,8 +48,10 @@
     var img1 = document.getElementById("img1")
     var clicks = document.getElementById("clicks")
     var upgrade1 = 10
-    var auto = 3
+    var auto = 300
+    var upgradeAuto = 600
     var costMultiplier = 0
+    var addCostMulti = 0
     var clicksAdd = 1 //adds number of clicks per sun click
 
     var clicksPerInterval = 0
@@ -47,7 +62,7 @@
 
     var clicksnum = 0
     setInterval(update2, 500)
-    
+
 
     function update() {
         clicksnum = clicksnum + clicksAdd
@@ -77,7 +92,7 @@
         if (clicksnum >= auto) {
             clicksnum = clicksnum - auto
             clicksPerInterval = clicksPerInterval + 1
-            costMultiplier = 2
+            costMultiplier = 2.5
             auto = auto * costMultiplier
             document.getElementById("button2").innerText = "auto = $" + auto
             document.getElementById("button2").style.display = "none"
@@ -87,9 +102,11 @@
         if (clicksnum >= upgradeAuto) {
             clicksnum = clicksnum - upgradeAuto
             clicksPerInterval = clicksPerInterval + 1
-            costMultiplier = 2
-            upgradeAuto = upgradeAuto * costMultiplier
-            document.getElementById("button2").innerText = "auto = $" + upgradeAuto
+            upgradeAuto = Math.round(upgradeAuto * costMultiplier)
+            document.getElementById("button3").innerText = "upgradeAuto = $" + upgradeAuto
+        }
+        if (clicksPerInterval >= 2) {
+            clicksPerInterval = clicksPerInterval * 2
         }
 
 

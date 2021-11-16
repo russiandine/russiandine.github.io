@@ -1,8 +1,10 @@
 body {
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/934/179/717/space-ios-7-abstraction-wallpaper-preview.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-color:rgb(200,97,25);
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/934/179/717/space-ios-7-abstraction-wallpaper-preview.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:rgb(200,97,25);
+  border-left: 100px;
+  border-left-color: white;
 }
 #img1 {
   position:absolute;
@@ -16,16 +18,48 @@ p{
   font-size:40px;
   font-weight: 900;
 }
-#leftside {
-  width: 200px;
-  height: 200px;
-  background-color: white;
-  position: absolute;
-}
-body {
-  border-left: 100px;
-  border-left-color: white;
-}
 .sidemenu{
   text-align: center;
+}
+.vert1{
+  display: inline-block;
+  background:rgb(255, 174, 0);
+  border-radius: 4px;
+  font-family: "arial-black";
+  font-size: 14px;
+  color: #FFF;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}
+.vert2{
+  display: inline-block;
+  background:rgb(255, 174, 0);
+  border-radius: 4px;
+  font-family: "arial-black";
+  font-size: 14px;
+  color: #FFF;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 37.7%;
+}
+.vert2{
+  display: inline-block;
+  background:rgb(255, 174, 0);
+  border-radius: 4px;
+  font-family: "arial-black";
+  font-size: 14px;
+  color: #FFF;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 37.7%;
 }
