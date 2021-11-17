@@ -20,8 +20,10 @@ p{
 }
 .sidemenu{
   text-align: center;
+  
 }
-.vert1{
+.butt{
+  margin-bottom:10px;
   display: inline-block;
   background:rgb(255, 174, 0);
   border-radius: 4px;
@@ -31,23 +33,12 @@ p{
   padding: 8px 12px;
   cursor: pointer;
 }
-.vert2{
-  display: inline-block;
-  background:rgb(255, 174, 0);
-  border-radius: 4px;
-  font-family: "arial-black";
-  font-size: 14px;
-  color: #FFF;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-.vert3{
-  display: inline-block;
-  background:rgb(255, 174, 0);
-  border-radius: 4px;
-  font-family: "arial-black";
-  font-size: 14px;
-  color: #FFF;
-  padding: 8px 12px;
-  cursor: pointer;
+
+.AllUpgrades{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  
 }
