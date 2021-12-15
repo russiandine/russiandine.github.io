@@ -27,28 +27,14 @@
 
 
     <div class="sidebar">
-        
+
         <p class="sidemenu" id="clicks">🌠 0</p>
 
         <div class="AllUpgrades">
 
-
-            <div class="butt">
-                <div class="sidemenu" id="button">upgarde = $10</div>
-            </div>
-           
-            
-
-            <div class="butt">
-                <div class="sidemenu" id="button2">auto = $300</div>
-            </div>
-
-            
-
-            <div class="butt">
-                <div class="sidemenu" id="button3">autospeed = $600</div>
-            </div>
-
+            <div class="butt" class="sidemenu" id="button">+1/click = $10</div>
+            <div class="butt" class="sidemenu" id="button2">auto = $300</div>
+            <div class="butt" class="sidemenu" id="button3">autospeed = $600</div>
 
         </div>
 
@@ -96,7 +82,7 @@
             clicksnum = clicksnum - upgrade1
             costMultiplier = 2
             upgrade1 = upgrade1 * costMultiplier
-            document.getElementById("button").innerText = "upgrade = $" + upgrade1
+            document.getElementById("button").innerText = "+1/click = $" + upgrade1
             clicksAdd = clicksAdd + 1
         }
 
@@ -109,6 +95,12 @@
             auto = auto * costMultiplier
             document.getElementById("button2").innerText = "auto = $" + auto
             document.getElementById("button2").style.display = "none"
+            document.getElementById("button2").classList.remove('butt')
+            if (document.getElementById("button2").classList.contains('butt')) {
+
+                document.getElementById("button2").classList.remove('butt');
+                
+            }
         }
     }
     function upgradeAuto1() {
