@@ -35,11 +35,14 @@
         if (pPressed === true) {
             cartop.style.left = x + "px";
             x = x + xAdd
+            cartop.style.transform = "rotate(" + x + "deg)"
+            
 
         }
         if (qPressed === true) {
             carbottom.style.left = x1 + "px";
             x1 = x1 + x1Add
+            carbottom.style.transform = "rotate(" + x1 + "deg)"
         }
         time = time + 0.01
         document.getElementById("timer").innerHTML = "Time: " + time.toFixed(3) + " seconds"
