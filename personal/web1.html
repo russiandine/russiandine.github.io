@@ -2,19 +2,132 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="web1.css">
-  <script src="web1.js"></script>
-  </script>
+  <link rel="stylesheet"href="web1.css">
+  <meta name="viewport" content="width=device-width, 
+        initial-scale=1.0, 
+        user-scalable=no" />
+  <title>Drag/Drop/Bounce</title>
   <style>
-    canvas {
-      border: 1px solid black;
+    body {
+      background-color: blanchedalmond;
     }
-  </style>
 
+    #container {
+      width: 100%;
+      height: 100%;
+      background-color: blanchedalmond;
+      display: inline;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 7px;
+      touch-action: none;
+    }
+
+    #item {
+      width: 140px;
+      height: 140px;
+      touch-action: none;
+      user-select: none;
+    }
+
+    #item:active {}
+
+    #item:hover {
+      cursor: pointer;
+      border-width: 20px;
+      width: 180px;
+      height: 180px;
+    }
+
+    
+  </style>
 </head>
 
-<body onload="draw();">
-  <canvas id="tutorial" width="150" height="150"></canvas>
+<body>
+  <img id="img1" src="—Pngtree—square note paper cartoon illustration_4519282.png">
+  <div id="outerContainer">
+    <div id="container">
+      <img id="item" src="—Pngtree—square note paper cartoon illustration_4519282.png">
+
+    </div>
+  </div>
+  </div>
+
+  <script>
+    var img1 = document.getElementById("img1")
+    var dragItem = document.querySelector("#item");
+    var container = document.querySelector("#container");
+
+    var active = false;
+    var currentX;
+    var currentY;
+    var initialX;
+    var initialY;
+    var xOffset = 0;
+    var yOffset = 0;
+    var another;
+  
+  
+    document.getElementById("img1").addEventListener("click", newNote)
+    container.addEventListener("touchstart", dragStart, false);
+    container.addEventListener("touchend", dragEnd, false);
+    container.addEventListener("touchmove", drag, false);
+
+    container.addEventListener("mousedown", dragStart, false);
+    container.addEventListener("mouseup", dragEnd, false);
+    container.addEventListener("mousemove", drag, false);
+
+    //make a new note on click of small note in corner 
+    function newNote(){
+      
+    }
+
+    function dragStart(e) {
+      if (e.type === "touchstart") {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+      } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+      }
+
+      if (e.target === dragItem) {
+        active = true;
+      }
+    }
+
+    function dragEnd(e) {
+      initialX = currentX;
+      initialY = currentY;
+
+      active = false;
+    }
+
+    function drag(e) {
+      if (active) {
+
+        e.preventDefault();
+
+        if (e.type === "touchmove") {
+          currentX = e.touches[0].clientX - initialX;
+          currentY = e.touches[0].clientY - initialY;
+        } else {
+          currentX = e.clientX - initialX;
+          currentY = e.clientY - initialY;
+        }
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, dragItem);
+      }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    }
+  </script>
 </body>
 
 </html>

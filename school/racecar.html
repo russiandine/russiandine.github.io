@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="kerchoo.css">
+</head>
+
+<body>
+    <img id="cartop" class="img1"
+        src="https://www.pinclipart.com/picdir/middle/72-722629_driver-clipart-horsepower-sports-car-side-view-png.png">
+    <img id="carbottom" class="img2"
+        src="https://pngset.com/images/lamborghini-huracan-performante-side-car-vehicle-transportation-automobile-transparent-png-1052211.png">
+
+</body>
+
+</html>
+<script>
+    var cartop = document.getElementById("cartop")
+    var carbottom = document.getElementById("carbottom")
+    var x = 0
+    xAdd = 20
+    var x1 = 0
+    var x1Add = 1
+    var cartopSpeed=0
+    pPressed = false
+    setInterval(update, 50)
+    document.addEventListener('keyup', keypress);
+    
+
+
+
+    function update() {
+        if (pPressed === true){
+            cartop.style.left = x + "px";
+            x=x+cartopSpeed
+            
+        }
+        if(e.key === "p"){
+            x=x+cartopSpeed
+        }
+    }
+
+    function keypress(e) {
+        if (e.key === "p") {
+            x = x + catopSpeed
+            cartopSpeed=cartopSpeed+1
+            x=x+1
+            
+            pPressed = true
+        }
+        if (e.key === "q") {
+            x1 = x1 + x1Add
+            x1Add = x1Add + 1
+            carbottom.style.left = x1 + "px";
+        }
+    }
+
+    
+
+
+</script>
