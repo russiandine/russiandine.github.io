@@ -18,54 +18,55 @@
     var cartop = document.getElementById("cartop")
     var carbottom = document.getElementById("carbottom")
     var x = 0
-    var xAdd = 0.1
+    var xAdd = 0
     var x1 = 0
-    var x1Add = 0.1
-    var cartopSpeed = 0
-    var pPressed = false
-    var qPressed = false
+    var x1Add = 0
+    
     var time = 0
+    
     setInterval(update, 10)
-    document.addEventListener('keyup', keypress);
-
+    document.addEventListener('keydown', keypress);
+    
 
 
 
     function update() {
-        if (pPressed === true) {
+        
             cartop.style.left = x + "px";
             x = x + xAdd
             cartop.style.transform = "rotate(" + x + "deg)"
-            
-
-        }
-        if (qPressed === true) {
+            if (xAdd>0){
+                xAdd=xAdd-0.008
+            }
+            if (xAdd<0){
+                xAdd=0
+            }
+            if (x1Add>0){
+                x1Add=x1Add-0.008
+            }
+            if (x1Add<0){
+                x1Add=0
+            }
+    
             carbottom.style.left = x1 + "px";
             x1 = x1 + x1Add
             carbottom.style.transform = "rotate(" + x1 + "deg)"
-        }
+
         time = time + 0.01
         document.getElementById("timer").innerHTML = "Time: " + time.toFixed(3) + " seconds"
     }
 
     function keypress(e) {
         if (e.key === "p") {
-            x = x + xAdd
             xAdd = xAdd + 0.4
-            cartop.style.left = x + "px";
-
-
-            pPressed = true
+            
+            
         }
         if (e.key === "q") {
-            x1 = x1 + x1Add
             x1Add = x1Add + 0.4
-            carbottom.style.left = x1 + "px";
-
-
-            qPressed = true
         }
     }
+    
 
 
 
