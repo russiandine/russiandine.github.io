@@ -1,13 +1,27 @@
-img{
-    width: 100px;
-}
+
 .img1{
     position: absolute;
     top: 100px;
     left: 0;
+    width: 100px;
+    z-index: 0;
 }
 .img2{
     position: absolute;
     top: 230px;
+    width: 100px;
     left: 0px;
+}
+body { 
+    background-image:url('https://cdnb.artstation.com/p/assets/images/images/009/739/023/large/dylan-papp-pg-v3-base-color.jpg?1520615486'); 
+    background-repeat:repeat; 
+}
+#roadimg1{
+    background-image: url("https://cdn.impactinit.com/cdn/x/x@352b1c2fc4/smss52/smsimg33/pv/isignstockcontributors/iss_28270_00693.jpg");
+    background-repeat: repeat-x;
+    left:0;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    z-index: -3;
 }
