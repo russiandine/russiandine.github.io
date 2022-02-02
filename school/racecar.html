@@ -12,62 +12,86 @@
         src="https://pngset.com/images/lamborghini-huracan-performante-side-car-vehicle-transportation-automobile-transparent-png-1052211.png">
     <h1 id="timer">Time: 0 seconds</h1>
     <img id="roadimg1"></img>
-    <div id="road2"></div>
+    <div id="roadimg2"></div>
+    <div id="e">
+        <h1 id="font1">Top car Wins!</h1>
+    </div>
 </body>
 
 </html>
 <script>
     var cartop = document.getElementById("cartop")
     var carbottom = document.getElementById("carbottom")
+
     var x = 0
     var xAdd = 0
     var x1 = 0
-    var x1Add = 0    
+    var x1Add = 0
     var time = 0
-    
+
     setInterval(update, 10)
     document.addEventListener('keydown', keypress);
-    
+    document.addEventListener("e").addEventListener('click', restart);
+
 
 
 
     function update() {
+
+        cartop.style.left = x + "px";
+        x = x + xAdd
+        cartop.style.transform = "rotate(" + x + "deg)"
+        if (x >= 1000) {
+            document.getElementById("e").style.display = "block";
+            xAdd=0
+            
+
+        }
+        if (x1 >= 1000) {
+            document.getElementById("e").style.display = "block";
+            x1Add=0
+
+        }
+        if (xAdd > 0) {
+            xAdd = xAdd - 0.008
+        }
+        if (xAdd < 0) {
+            xAdd = 0
+        }
+        if (x1Add > 0) {
+            x1Add = x1Add - 0.008
+        }
+        if (x1Add < 0) {
+            x1Add = 0
+        }
         
-            cartop.style.left = x + "px";
-            x = x + xAdd
-            cartop.style.transform = "rotate(" + x + "deg)"
-            if (xAdd>0){
-                xAdd=xAdd-0.008
-            }
-            if (xAdd<0){
-                xAdd=0
-            }
-            if (x1Add>0){
-                x1Add=x1Add-0.008
-            }
-            if (x1Add<0){
-                x1Add=0
-            }
-    
-            carbottom.style.left = x1 + "px";
-            x1 = x1 + x1Add
-            carbottom.style.transform = "rotate(" + x1 + "deg)"
+
+        carbottom.style.left = x1 + "px";
+        x1 = x1 + x1Add
+        carbottom.style.transform = "rotate(" + x1 + "deg)"
+        
 
         time = time + 0.01
         document.getElementById("timer").innerHTML = "Time: " + time.toFixed(3) + " seconds"
+        
     }
 
     function keypress(e) {
         if (e.key === "p") {
             xAdd = xAdd + 0.4
-            
-            
+
+
         }
         if (e.key === "q") {
             x1Add = x1Add + 0.4
         }
     }
-    
+    function restart(){
+        
+    }
+
+
+
 
 
 
