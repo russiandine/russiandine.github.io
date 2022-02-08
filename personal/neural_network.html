@@ -21,25 +21,34 @@
     canvas.height = innerHeight
 
     var x = 0
+    var y = 0
 
 
     var x50 = x + 50
     var xNeg50 = x - 50
+    var y50= y+50
+    var yNeg50= y-50
+    var movementsX= [x50, xNeg50]
+    var movementsY= [y50, yNeg50]
+    var brainX = []
+    var brainY = []
 
-    var movements = [x50, xNeg50]
-    var brain = []
-
-    for (let i = 0; i < 10; i++) {
+    for (i = 0; i < 10; i++) {
+        x = x + movementsX[Math.floor(Math.random() * movementsX.length)]
+        y = y + movementsY[Math.floor(Math.random() * movementsY.length)]
+        brainX.push(x)
+        brainY.push(y)
+        console.log(brainX)
+        console.log(brainY)
         task(i);
     }
 
     function task(i) {
         setTimeout(function () {
-            x = x + movements[Math.floor(Math.random() * movements.length)]
+            x = brainX[i]
+            y = brainY[i]
             console.log(x)
-            brain.push(x)
-            console.log(brain)
-        }, 2000 * i);
+        }, 1000 * i);
     }
 
 
@@ -56,13 +65,13 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.beginPath()
         ctx.fillStyle = "green";
-        ctx.rect(x, 400, 50, 50);
+        ctx.rect(x, y, 50, 50);
         ctx.fill()
 
-
-
-
         
+
+
+
 
 
 
