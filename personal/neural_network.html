@@ -21,60 +21,53 @@
     canvas.height = innerHeight
 
     var x = 0
-    var y = 0
-    
-    var speedx = 0
-    var speedy = 0
-    
-    
+
+
+    var x50 = x + 50
+    var xNeg50 = x - 50
+
+    var movements = [x50, xNeg50]
+    var brain = []
+
+    for (let i = 0; i < 10; i++) {
+        task(i);
+    }
+
+    function task(i) {
+        setTimeout(function () {
+            x = x + movements[Math.floor(Math.random() * movements.length)]
+            console.log(x)
+            brain.push(x)
+            console.log(brain)
+        }, 2000 * i);
+    }
+
+
 
     setInterval(update, 10)
 
     ctx.fillStyle = "green";
-    ctx.rect(x, y, 50, 50);
+    ctx.rect(500, y, 50, 50);
     ctx.fill()
 
+
+
     function update() {
-        ctx.clearRect(0,0, canvas.width, canvas.height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.beginPath()
         ctx.fillStyle = "green";
-        ctx.rect(x, y, 50, 50);
+        ctx.rect(x, 400, 50, 50);
         ctx.fill()
+
+
+
+
         
 
-        x = x + speedx
-        y = y + speedy
 
-        //X move
-        if (x <= 50) {
-            speedx = 10
-
-            /*if(down === 1){
-                y=y+100
-            }*/
-        }
-
-        if (x >= window.innerWidth - 50) {
-            speedx = -10
-
-            /*down=1
-            y=y+100*/
-        }
-        //Y move
-
-        if (y <= 50) {
-            speedy = 10
-
-
-        }
-
-        if (y >= window.innerHeight - 50) {
-            speedy = -10
-
-        }
-        
 
     }
+
 
 
 </script>
