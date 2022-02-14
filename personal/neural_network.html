@@ -20,35 +20,40 @@
     canvas.width = innerWidth
     canvas.height = innerHeight
 
-    var x = 0
-    var y = 0
+    var x = 500
+    var y = 350
 
 
-    var x50 = x + 50
-    var xNeg50 = x - 50
-    var y50 = y + 50
-    var yNeg50 = y - 50
-    var movementsX = [x50, xNeg50]
-    var movementsY = [y50, yNeg50]
-    var brainX = []
-    var brainY = []
 
 
+    var movements = ["u", "d", "l", "r"]
+
+    var brain = []
+
+    
     for (i = 0; i < 10; i++) {
-        x = x + movementsX[Math.floor(Math.random() * movementsX.length)]
-        y = y + movementsY[Math.floor(Math.random() * movementsY.length)]
-        brainX.push(x)
-        brainY.push(y)
-        console.log(brainX)
-        console.log(brainY)
+        brain.push(movements[Math.floor(Math.random() * movements.length)])
+
+        console.log(brain)
         task(i);
     }
 
+
     function task(i) {
         setTimeout(function () {
-            x = brainX[i]
-            y = brainY[i]
-            console.log(x)
+            if (brain[i] === movements[0]) {
+                y = y + 50
+            }
+            if (brain[i] === movements[1]) {
+                y = y - 50
+            }
+            if (brain[i] === movements[2]) {
+                x = x + 50
+            }
+            if (brain[i] === movements[3]) {
+                x = x - 50
+            }
+            console.log("(" + x + "," + y + ")")
         }, 1000 * i);
     }
 
@@ -57,7 +62,7 @@
     setInterval(update, 10)
 
     ctx.fillStyle = "green";
-    ctx.rect(500, y, 50, 50);
+    ctx.rect(500, 500, 50, 50);
     ctx.fill()
 
 
