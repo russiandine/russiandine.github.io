@@ -7,75 +7,86 @@
 
 <body>
 
-    <canvas id="canvas" width="600" height="600"></canvas>
+  <canvas id="canvas" width="600" height="600"></canvas>
 
 </body>
 
 </html>
 
 <script>
-    document.getElementById("canvas")
-    var ctx = canvas.getContext("2d")
+  document.getElementById("canvas")
+  var ctx = canvas.getContext("2d")
 
-    canvas.width = innerWidth
-    canvas.height = innerHeight
+  canvas.width = innerWidth
+  canvas.height = innerHeight
 
-    var x = 500
-    var y = 350
+  var x = 500
+  var y = 300
+  var startSpot = x, y
 
 
 
+  var movements = ["u", "d", "l", "r"]
 
-    var movements = ["u", "d", "l", "r"]
+  var brain = [startSpot]
 
-    var brain = []
 
+  for (i = 0; i < 11; i++) {
+    brain.push(movements[Math.floor(Math.random() * movements.length)])
+
+    console.log(brain)
+    task(i);
+  }
+
+
+  function task(i) {
+    setTimeout(function () {
+      if (brain[i] === movements[0]) {
+        y = y + 50
+      }
+      if (brain[i] === movements[1]) {
+        y = y - 50
+      }
+      if (brain[i] === movements[2]) {
+        x = x + 50
+      }
+      if (brain[i] === movements[3]) {
+        x = x - 50
+      }
+      console.log("(" + x + "," + y + ")")
+      if (brain[i]===brain[10]){
+        x=500
+        y=300
+      }
+      console.log(i)
+    }, 1000 * i);
     
-    for (i = 0; i < 10; i++) {
-        brain.push(movements[Math.floor(Math.random() * movements.length)])
+    
+  }
 
-        console.log(brain)
-        task(i);
-    }
-
-
-    function task(i) {
-        setTimeout(function () {
-            if (brain[i] === movements[0]) {
-                y = y + 50
-            }
-            if (brain[i] === movements[1]) {
-                y = y - 50
-            }
-            if (brain[i] === movements[2]) {
-                x = x + 50
-            }
-            if (brain[i] === movements[3]) {
-                x = x - 50
-            }
-            console.log("(" + x + "," + y + ")")
-        }, 1000 * i);
-    }
+  
 
 
 
-    setInterval(update, 10)
+  setInterval(update, 10)
 
+  ctx.fillStyle = "green";
+  ctx.rect(500, y, 50, 50);
+  ctx.fill()
+
+
+
+  function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.beginPath()
     ctx.fillStyle = "green";
-    ctx.rect(500, 500, 50, 50);
+    ctx.rect(x, y, 50, 50);
     ctx.fill()
 
 
-
-    function update() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        ctx.beginPath()
-        ctx.fillStyle = "green";
-        ctx.rect(x, y, 50, 50);
-        ctx.fill()
+  }
 
 
-    }
 
 
 

@@ -25,6 +25,7 @@
     var r = []
     var speedx = []
     var speedy = []
+  
 
     var down = 0
 
@@ -36,14 +37,7 @@
     document.getElementById("canvas").addEventListener("click", HehHeh_Balls);
 
 
-    function HehHeh_Balls() {
-
-        x.push(Math.random() * 300 + 100)
-        y.push(Math.random() * 300 + 100)
-        speedx.push(Math.random() * 50)
-        speedy.push(Math.random() * 50)
-        r.push(Math.floor(Math.random() * 100 + 50))
-    }
+    
 
 
 
@@ -56,6 +50,9 @@
 
 
         for (i = 0; i < x.length; i = i + 1) {
+           
+        
+        
 
             ctx.beginPath()
             ctx.arc(x[i], y[i], r[i], 0, 2 * Math.PI);
@@ -90,10 +87,17 @@
                 speedy[i] = speedy[i] * -1
                 ctx.fillStyle = "hsl(" + Math.random() * 361 + ",100%,50%)"
             }
+            for( var j=0;j<x.length;j=j+1){
+                if(x[i]===x[j]){
+                    speedx[j]=speedx[i]
+                    speedx[i]=speedx[j]
+                }
+            }
 
 
 
         }
+        
 
     }
 
