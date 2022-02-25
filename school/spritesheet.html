@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #hi {
+            display: block;
+            opacity:4;
+        }
+
+        body {
+            background-image: url('https://wallpaperaccess.com/full/2513478.jpg');
+
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <img id="hi" src="SHip.png">
+
+</body>
+
+</html>
+<script>
+    var sx = [0, 32, 64]
+    var x = 500
+    var y = 200
+    var xAdd = 0
+    var yAdd = 0
+    document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+
+
+    canvas.width = innerWidth
+    canvas.height = innerHeight
+    var i = 0
+
+    setInterval(e, 10)
+    document.addEventListener('keydown', keydown);
+    document.addEventListener('keyup', keyup);
+
+
+
+
+    function e() {
+        //if (i > 2) {
+        // i = 0
+        //}
+        x = x + xAdd
+        y = y + yAdd
+        var img = document.getElementById("hi");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, sx[i], 0, 32, 32, x, y, 100, 110);
+
+
+
+        // i = i + 1
+
+
+
+
+
+    }
+    function keydown(e) {
+        if (e.key === "a") {
+            i = 1
+            xAdd = -1
+        }
+        if (e.key === "d") {
+            i = 2
+            xAdd = 1
+        }
+        if (e.key === "w") {
+            yAdd = -1
+        }
+        if (e.key === "s") {
+            yAdd = 1
+        }
+
+    }
+    function keyup(e) {
+        if (e.key === "a") {
+            i = 0
+            xAdd = 0
+        }
+        if (e.key === "d") {
+            i = 0
+            xAdd = 0
+        }
+        if (e.key === "w") {
+            yAdd = 0
+        }
+        if (e.key === "s") {
+            yAdd = 0
+        }
+    }
+
+
+
+</script>

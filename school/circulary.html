@@ -25,7 +25,9 @@
     var r = []
     var speedx = []
     var speedy = []
-  
+    var color = []
+    
+    
 
     var down = 0
 
@@ -35,9 +37,10 @@
     var hue = Math.floor(Math.random * 360)
 
     document.getElementById("canvas").addEventListener("click", HehHeh_Balls);
-
-
     
+
+
+
 
 
 
@@ -46,17 +49,16 @@
 
     function update() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
 
 
 
         for (i = 0; i < x.length; i = i + 1) {
-           
-        
-        
 
             ctx.beginPath()
             ctx.arc(x[i], y[i], r[i], 0, 2 * Math.PI);
-            ctx.fillStyle = "hsl(" + Math.random() * 361 + ",100%,50%)"
+            ctx.fillStyle = color[i] 
+           
 
 
             ctx.fill()
@@ -66,39 +68,63 @@
 
             if (x[i] <= 50) {
                 speedx[i] = speedx[i] * -1
-                ctx.fillStyle = "hsl(" + Math.random() * 361 + ",100%,50%)"
+                
 
             }
 
             if (x[i] >= window.innerWidth - 50) {
                 speedx[i] = speedx[i] * -1
-                ctx.fillStyle = "hsl(" + Math.random() * 361 + ",100%,50%)"
+                
 
             }
             //Y move
 
             if (y[i] <= 50) {
                 speedy[i] = speedy[i] * -1
-                ctx.fillStyle = "hsl(" + Math.random() * 361 + ",100%,50%)"
+                
 
             }
 
             if (y[i] >= window.innerHeight - 50) {
                 speedy[i] = speedy[i] * -1
-                ctx.fillStyle = "hsl(" + Math.random() * 361 + ",100%,50%)"
+                
             }
-            for( var j=0;j<x.length;j=j+1){
-                if(x[i]===x[j]){
-                    speedx[j]=speedx[i]
-                    speedx[i]=speedx[j]
+
+            for (var j = 0; j < x.length; j = j + 1) {
+                
+                console.log("i " + i + " j " + j + " x[i]: " + x[i] + " y[i]: " + y[i])
+                if (i !== j) {
+                    if(Math.sqrt(((x[i]-x[j])*(x[i]-x[j]))+((y[i]-y[j])*(y[i]-y[j])))<(r[i]+r[j])){
+                    var tempX=speedx[i]
+                    var tempY=speedy[i]
+                    speedx[i] = speedx[j]
+                    speedy[i] = speedy[j]
+                    speedx[j] = tempX
+                    speedy[j] = tempY
+                    
+                    }
                 }
+
             }
-
-
 
         }
-        
 
+
+
+    }
+
+    
+    function HehHeh_Balls() {
+        var e = window.event;
+        x.push(e.clientX)
+        y.push(e.clientY)
+        document.value = x
+        document.value = y
+        color.push("hsl(" + Math.random() * 361 + ",100%,50%)")
+        
+        speedx.push(Math.random() * 50)
+        speedy.push(Math.random() * 50)
+        r.push(Math.floor(Math.random() * 50 + 70))
     }
 
 
