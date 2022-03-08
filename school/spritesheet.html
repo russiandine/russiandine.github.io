@@ -5,11 +5,12 @@
     <style>
         #hi {
             display: block;
-            opacity:4;
+            opacity: 4;
         }
 
         body {
             background-image: url('https://wallpaperaccess.com/full/2513478.jpg');
+            background-repeat: repeat;
 
         }
     </style>
@@ -35,8 +36,10 @@
     canvas.width = innerWidth
     canvas.height = innerHeight
     var i = 0
-
+    
     setInterval(e, 10)
+    
+
     document.addEventListener('keydown', keydown);
     document.addEventListener('keyup', keyup);
 
@@ -52,6 +55,11 @@
         var img = document.getElementById("hi");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, sx[i], 0, 32, 32, x, y, 100, 110);
+
+        
+
+
+
 
 
 
@@ -77,12 +85,11 @@
         if (e.key === "s") {
             yAdd = 1
         }
-
     }
     function keyup(e) {
         if (e.key === "a") {
             i = 0
-            xAdd = 0
+            xAdd = 0 
         }
         if (e.key === "d") {
             i = 0
@@ -94,7 +101,10 @@
         if (e.key === "s") {
             yAdd = 0
         }
+
     }
+
+
 
 
 
