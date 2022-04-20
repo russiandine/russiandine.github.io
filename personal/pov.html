@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <canvas id="tutorial" width="150" height="150" onmousemove="myFunction(event)"></canvas>
+
+</body>
+
+</html>
+<script>
+    var canvas = document.getElementById('tutorial');
+    var ctx = canvas.getContext('2d');
+    canvas.width = innerWidth
+    canvas.height = innerHeight
+
+    var x
+    var y
+    var leftx = (canvas.width / 2) - 100
+    var lefty = (canvas.height / 2) - 100
+    var rightx = (canvas.width / 2) + 100
+    var righty = (canvas.height / 2) - 100
+
+    var leftxB = (canvas.width / 2) - 100
+    var leftyB = (canvas.height / 2) + 100
+    var rightxB = (canvas.width / 2) + 100
+    var rightyB = (canvas.height / 2) + 100
+
+    //start left top
+    
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(leftx,lefty);
+    ctx.stroke();
+    //start right top
+    ctx.beginPath();
+    ctx.moveTo(canvas.width, 0);
+    ctx.lineTo(rightx,lefty);
+    ctx.stroke();
+    //start left bottom
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height);
+    ctx.lineTo(leftx,leftyB);
+    ctx.stroke();
+    //start right bottom
+    ctx.beginPath();
+    ctx.moveTo(canvas.width, canvas.height);
+    ctx.lineTo(rightx,rightyB);
+    ctx.stroke();
+
+
+
+    //square pieces
+  /*  ctx.beginPath();
+    ctx.moveTo(leftx,lefty);
+    ctx.lineTo(rightx,righty);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(,);
+    ctx.lineTo(,);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(,);
+    ctx.lineTo(,);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(,);
+    ctx.lineTo(,);
+    ctx.stroke();*/
+
+    
+
+w
+
+
+
+
+
+
+
+    function myFunction(e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        var coor = "Coordinates: (" + x + "," + y + ")";
+        console.log(coor)
+        //start left top
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo((((leftx - x) / 2) + leftx), ((lefty - y) / 2) + lefty);
+        ctx.stroke();
+        //start right top
+        ctx.beginPath();
+        ctx.moveTo(canvas.width, 0);
+        ctx.lineTo((((rightx - x) / 2) + leftx), ((lefty - y) / 2) + lefty);
+        ctx.stroke();
+        //start left bottom
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height);
+        ctx.lineTo((((leftxB - x) / 2) + leftxB), ((lefty - y) / 2) + leftyB);
+        ctx.stroke();
+        //start right bottom
+        ctx.beginPath();
+        ctx.moveTo(canvas.width, canvas.height);
+        ctx.lineTo((((rightxB - x) / 2) + leftxB), ((lefty - y) / 2) + leftyB);
+        ctx.stroke();
+
+
+
+        //square pieces
+        ctx.beginPath();
+        ctx.moveTo((((leftx - x) / 2) + leftx), ((lefty - y) / 2) + lefty);
+        ctx.lineTo((((rightx - x) / 2) + leftx), ((lefty - y) / 2) + lefty);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo((((rightx - x) / 2) + leftx), ((lefty - y) / 2) + lefty);
+        ctx.lineTo((((rightxB - x) / 2) + leftxB), ((lefty - y) / 2) + leftyB);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo((((rightxB - x) / 2) + leftxB), ((lefty - y) / 2) + leftyB);
+        ctx.lineTo((((leftxB - x) / 2) + leftxB), ((lefty - y) / 2) + leftyB);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo((((leftxB - x) / 2) + leftxB), ((lefty - y) / 2) + leftyB);
+        ctx.lineTo((((leftx - x) / 2) + leftx), ((lefty - y) / 2) + lefty);
+        ctx.stroke();
+
+    }
+
+
+
+
+
+
+
+
+</script>

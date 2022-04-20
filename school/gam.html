@@ -4,29 +4,38 @@
 <head>
     <style>
         .sidebar {
-            padding-left: 10px;
+            
             top: 0px;
             left: 0px;
             position: absolute;
             width: 300px;
             height: 100%;
-            background-image: url("https://cdn.mos.cms.futurecdn.net/jfkAU4tM8XMUAPZDm4h5Nh-1200-80.jpeg");
-            z-index: -1;
-            border-right: 10px solid white;
+            
+            z-index: 1;
+            
             text-align: center;
 
 
 
+        }
+
+        #img1 {
+            display: block;
+            opacity: 4;
+            
         }
     </style>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <img id="img1" src="PngItem_470204.png">
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+    <img id="img1" src="Peter.png">
+
 
 
     <div class="sidebar">
+
 
         <p class="sidemenu" id="clicks">🌠 0</p>
 
@@ -40,11 +49,15 @@
 
     </div>
 
+
 </body>
 
 </html>
 <script>
-    var img1 = document.getElementById("img1")
+
+    var sx = [0, 100]
+
+
     var clicks = document.getElementById("clicks")
     var upgrade1 = 10
     var auto = 300
@@ -52,15 +65,59 @@
     var costMultiplier = 0
     var addCostMulti = 0
     var clicksAdd = 1 //adds number of clicks per sun click
+    var button = document.getElementById("button");
+    var button2 = document.getElementById("button2");
+    var button3 = document.getElementById("button3");
+    var clickedin = false
 
     var clicksPerInterval = 0
     document.getElementById("img1").addEventListener("click", clickfun);
     document.getElementById("button").addEventListener("click", upgrade);
     document.getElementById("button2").addEventListener("click", auto1);
     document.getElementById("button3").addEventListener("click", upgradeAuto1)
+    button.addEventListener("click", upgrade);
+
+
+    document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+
+
+    canvas.width = innerWidth
+    canvas.height = innerHeight
+    var dx = canvas.width/2
+    var dy = canvas.height/2
+    var i = 0
+
 
     var clicksnum = 0
+    setInterval(e, 10)
     setInterval(update2, 500)
+    
+
+    function e() {
+
+        var img1 = document.getElementById("img1");
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img1, sx[i], 0, 100, 100,dx,dy, 300, 200)
+        if (clickedin === true) {
+            upgrade();
+            auto1();
+            upgradeAuto1();
+        }
+        ctx.beginPath();
+        ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+        ctx.fill();
+
+
+
+
+    }
+    const img1 = document.getElementById('img1')
+    img1.addEventListener("click", () => {
+        i = 1
+    });
+
 
 
     function update() {
@@ -70,6 +127,9 @@
     function update2() {
         clicksnum = clicksnum + clicksPerInterval
         document.getElementById("clicks").innerText = "🌠 " + clicksnum
+        if (i = 1) {
+            i = 0
+        }
     }
 
     function clickfun() {
@@ -99,7 +159,7 @@
             if (document.getElementById("button2").classList.contains('butt')) {
 
                 document.getElementById("button2").classList.remove('butt');
-                
+
             }
         }
     }

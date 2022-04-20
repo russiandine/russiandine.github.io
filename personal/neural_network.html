@@ -21,10 +21,17 @@
   canvas.width = innerWidth
   canvas.height = innerHeight
 
-  var x = 700
+  var x = 400
   var y = 300
   var startSpot = x, y
   var goal = 1000
+  var foodPlaceX = []
+  var foodPlaceY = []
+  var round50x = 0
+  var round50y = 0
+  var l = 0
+  var foodNum = 80
+
 
 
 
@@ -36,7 +43,7 @@
   var brain = [startSpot]
 
 
-  for (i = 0; i < 12; i++) {
+  for (i = 0; i < 3000; i++) {
     brain.push(movements[Math.floor(Math.random() * movements.length)])
 
     console.log(brain)
@@ -45,37 +52,46 @@
 
   }
 
-    function task(i) {
-      setTimeout(function () {
-        if (brain[i] === movements[0]) {
-          y = y + 50
-        }
-        if (brain[i] === movements[1]) {
-          y = y - 50
-        }
-        if (brain[i] === movements[2]) {
-          x = x + 50
-        }
-        if (brain[i] === movements[3]) {
-          x = x - 50
-        }
-        
-        console.log("(" + x + "," + y + ")")
-        if (i === 11) {
-          if (x !== 1000) {
-            
-            x = 700
-            y = 300
+  function task(i) {
+    setTimeout(function () {
+      if (brain[i] === movements[0]) {
+        y = y + 10
+      }
+      if (brain[i] === movements[1]) {
+        y = y - 10
+      }
+      if (brain[i] === movements[2]) {
+        x = x + 10
+      }
+      if (brain[i] === movements[3]) {
+        x = x - 10
+      }
 
-          }
+      console.log("(" + x + "," + y + ")")
+      if (i === 30000) {
+        if (x !== 1000) {
+
+          x = 700
+          y = 300
+
         }
+      }
+      if (y >= canvas.height) {
+        y = y - 10 + (x - x)
+      }
+      if (x >= canvas.width) {
+        x = x - 10 + (y - y)
+      }
 
-        console.log(i)
-      }, 1000 * i);
+
+      console.log(i)
+    }, 10 * i);
 
 
 
-    }
+  }
+
+
 
 
 
@@ -84,20 +100,36 @@
   setInterval(update, 10)
 
   ctx.fillStyle = "green";
-  ctx.rect(x, y, 50, 50);
+  ctx.rect(x, y, 10, 10);
   ctx.fill()
 
 
 
+  function roundnum(num1) {
+    return Math.ceil(num1 / 10) * 10;
+    //return Math.round(num2 / 50) * 50;
+  }
+  function roundnum2(num2) {
+    return Math.ceil(num2 / 10) * 10;
+    //return Math.round(num2 / 50) * 50;
+  }
 
+  for (j = 0; j < foodNum; j++) {
+    var food50x = Math.floor(Math.random() * canvas.width + 0)
+    var food50y = Math.floor(Math.random() * canvas.height + 0)
+    //foodPlaceY.push(round50y/*Math.floor(Math.random() * canvas.height + 0)*/)
+    console.log(foodPlaceX)
 
+  }
 
   function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.beginPath()
     ctx.fillStyle = "green";
-    ctx.rect(x, y, 50, 50);
+    ctx.rect(x, y, 10, 10);
     ctx.fill()
+
+
 
 
     //goal line
@@ -108,232 +140,44 @@
     ctx.moveTo(1000, window.innerHeight);
     ctx.lineTo(1000, 0);
     ctx.stroke();
+    console.log(foodPlaceX)
 
-    //grid
-    function grid() {
-      ctx.strokeStyle = 'red';
-      ctx.lineWidth = 1;
-      //X's
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(0, window.innerHeight);
-      ctx.stroke();
 
-      ctx.beginPath();
-      ctx.moveTo(50, 0);
-      ctx.lineTo(50, window.innerHeight);
-      ctx.stroke();
 
-      ctx.beginPath();
-      ctx.moveTo(100, 0);
-      ctx.lineTo(100, window.innerHeight);
-      ctx.stroke();
 
-      ctx.beginPath();
-      ctx.moveTo(150, 0);
-      ctx.lineTo(150, window.innerHeight);
-      ctx.stroke();
 
-      ctx.beginPath();
-      ctx.moveTo(200, 0);
-      ctx.lineTo(200, window.innerHeight);
-      ctx.stroke();
 
-      ctx.beginPath();
-      ctx.moveTo(250, 0);
-      ctx.lineTo(250, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(300, 0);
-      ctx.lineTo(300, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(350, 0);
-      ctx.lineTo(350, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(400, 0);
-      ctx.lineTo(400, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(450, 0);
-      ctx.lineTo(450, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(500, 0);
-      ctx.lineTo(500, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(550, 0);
-      ctx.lineTo(550, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(600, 0);
-      ctx.lineTo(600, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(650, 0);
-      ctx.lineTo(650, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(700, 0);
-      ctx.lineTo(700, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(750, 0);
-      ctx.lineTo(750, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(800, 0);
-      ctx.lineTo(800, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(850, 0);
-      ctx.lineTo(850, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(900, 0);
-      ctx.lineTo(900, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(950, 0);
-      ctx.lineTo(950, window.innerHeight);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(1000, 0);
-      ctx.lineTo(1000, window.innerHeight);
-      ctx.stroke();
-
-      //Y's
-
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(1000, 0);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 50);
-      ctx.lineTo(1000, 50);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 100);
-      ctx.lineTo(1000, 100);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 150);
-      ctx.lineTo(1000, 150);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 200);
-      ctx.lineTo(1000, 200);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 250);
-      ctx.lineTo(1000, 250);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 300);
-      ctx.lineTo(1000, 300);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 350);
-      ctx.lineTo(1000, 350);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 400);
-      ctx.lineTo(1000, 400);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 450);
-      ctx.lineTo(1000, 450);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 500);
-      ctx.lineTo(1000, 500);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 550);
-      ctx.lineTo(1000, 550);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 600);
-      ctx.lineTo(1000, 600);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 650);
-      ctx.lineTo(1000, 650);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 700);
-      ctx.lineTo(1000, 700);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 750);
-      ctx.lineTo(1000, 750);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 800);
-      ctx.lineTo(1000, 800);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 850);
-      ctx.lineTo(1000, 850);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 900);
-      ctx.lineTo(1000, 900);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 950);
-      ctx.lineTo(1000, 950);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(0, 1000);
-      ctx.lineTo(1000, 1000);
-      ctx.stroke();
-
+    for (h = 0; h < foodNum; h++) {
+      ctx.beginPath()
+      ctx.fillStyle = "brown";
+      ctx.rect(foodPlaceX[h], foodPlaceY[h], 10, 10);
+      ctx.fill()
+      if ((x === foodPlaceX[h]) && (y === foodPlaceY[h])) {
+        foodPlaceX.splice(h, 1);
+        foodPlaceY.splice(h, 1)
+        
+      }
     }
-    grid()
 
 
+    //var round50y = Math.round(num2 / 50) * 50
+
+    console.log("round50x" + " " + round50x)
 
 
 
   }
+
+  for (l = 0; l < foodNum; l++) {
+    round50x = roundnum(Math.floor(Math.random() * canvas.width + 0))
+    round50y = roundnum2(Math.floor(Math.random() * canvas.height + 0))
+    foodPlaceX.push(round50x)
+    foodPlaceY.push(round50y)
+  }
+
+
+
+
 
 
 

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #hi {
+            display: block;
+            opacity: 4;
+        }
+
+        #TP {
+            display: block;
+            opacity: 4;
+        }
+
+        #background {
+            background-image: url('stars.jpg');
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-position: absolute;
+        }
+    </style>
+</head>
+
+<body id="background">
+
+    <canvas id="canvas" width="100%" height="600"></canvas>
+    <img id="hi" src="SHip.png">
+    <img id="TP" src="P1.png">
+    <div id="background"></div>
+
+</body>
+
+</html>
+<script>
+    var sx = [0, 32, 64]
+    var sxP1 = [0, 32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352]
+    var x = 500
+    var y = 200
+    var TPx = 100
+    var TPy = 300
+    var xAdd = 0
+    var yAdd = 0
+
+  
+
+
+
+
+
+
+
+
+    document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+
+
+    canvas.width = innerWidth
+    canvas.height = innerHeight
+    var i = 0
+    var j = 0
+   
+    
+    setInterval(e, 10)
+    setInterval(planetspin, 200)
+   
+
+
+
+    document.addEventListener('keydown', keydown);
+    document.addEventListener('keyup', keyup);
+
+
+    function planetspin() {
+        if (j > 10) {
+            j = 0
+        }
+
+
+        j = j + 1
+    }
+    
+
+
+
+
+
+
+
+    function e() {
+
+
+        x = x + xAdd
+        y = y + yAdd
+        TPx = TPx - x
+        TPy = TPy - y
+
+
+
+        document.getElementById("background").style.backgroundPosition = -x + "px " + -y + "px"
+        var img = document.getElementById("hi");
+        var TP = document.getElementById("TP");
+
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(TP, sxP1[j], 0, 32, 32, 640 - x, 300 - y, 300, 300);
+        ctx.drawImage(img, sx[i], 0, 32, 32, 640, 300, 100, 110);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+    function keydown(e) {
+        if (e.key === "a") {
+            o = 0
+            u = 2
+            i = 1
+            xAdd = -20
+        }
+        if (e.key === "d") {
+            o = 0
+            u = 3
+            i = 2
+            xAdd = 20
+        }
+        if (e.key === "w") {
+            o = 0
+            u = 0
+            yAdd = -20
+        }
+        if (e.key === "s") {
+            o = 0
+            u = 1
+            yAdd = 20
+        }
+
+
+
+    }
+
+    function keyup(e) {
+        if (e.key === "a") {
+            o = 1
+
+            i = 0
+            xAdd = 0
+        }
+        if (e.key === "d") {
+            o = 1
+
+            i = 0
+            xAdd = 0
+        }
+        if (e.key === "w") {
+            o = 1
+
+            yAdd = 0
+        }
+
+        if (e.key === "s") {
+            o = 1
+
+            yAdd = 0
+        }
+
+    }
+
+
+
+
+
+
+
+
+</script>
